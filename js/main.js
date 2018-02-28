@@ -15,9 +15,19 @@
 
   window.addEventListener('keyup', function(e) {
     if (String.fromCharCode(e.keyCode) === currentWord[currentLocation].toUpperCase()) {
+      currentLocation++;
+      var placeholder = '';
+      for (var i = 0; i < currentLocation; i++) {
+        placeholder += '_';
+      }
+      target.innerHTML = placeholder + currentWord.substring(currentLocation);
       // console.log('score!');
+      score++;
+      scoreLabel.innerHTML = score;
     } else {
       // console.log('miss');
+      miss++;
+      missLabel.innerHTML = miss;
     }
   });
 })();
